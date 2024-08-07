@@ -1,0 +1,312 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <style>-->
+<!--        table {-->
+<!--          font-family: arial, sans-serif;-->
+<!--          border-collapse: collapse;-->
+<!--          width: 100%;-->
+<!--        }-->
+
+<!--        td, th {-->
+<!--          border: 1px solid #dddddd;-->
+<!--          text-align: left;-->
+<!--          padding: 8px;-->
+<!--        }-->
+
+<!--        tr:nth-child(even) {-->
+<!--          background-color: #dddddd;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2 style="text-align: center;">SHUKLENDU CO OP HOUSING SOCIETY LIMITED</h2>-->
+
+<!--<form action="#" th:action="@{/api/form/submit}" method="post">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>ROOM NO:</th>-->
+<!--            <td><input type="text" name="room_no" th:value="${formData.room_no}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>BILL NO:</th>-->
+<!--            <td><input type="text" name="bill_no" th:value="${formData.bill_no}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>BILL DATE:</th>-->
+<!--            <td><input type="date" name="bill_date" th:value="${formData.bill_date}" /></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>SR NO</th>-->
+<!--            <th>DETAILS</th>-->
+<!--            <th>AMOUNT</th>-->
+<!--            <th>SR NO</th>-->
+<!--            <th>AMOUNT</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>1</td>-->
+<!--            <td>Maintenance Contribution</td>-->
+<!--            <td><input type="text" name="maintenance_contribution" th:value="${formData.maintenance_contribution}" /></td>-->
+<!--            <td>44593</td>-->
+<!--            <td><input type="text" name="amount_44593" th:value="${formData.amount_44593}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>2</td>-->
+<!--            <td>Housing Board Contribution</td>-->
+<!--            <td><input type="text" name="housing_board_contribution" th:value="${formData.housing_board_contribution}" /></td>-->
+<!--            <td>Sub Charge</td>-->
+<!--            <td><input type="text" name="sub_charge" th:value="${formData.sub_charge}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>3</td>-->
+<!--            <td>Property Tax Contribution</td>-->
+<!--            <td><input type="text" name="property_tax_contribution" th:value="${formData.property_tax_contribution}" /></td>-->
+<!--            <td>Fine</td>-->
+<!--            <td><input type="text" name="fine" th:value="${formData.fine}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>4</td>-->
+<!--            <td>Sinking Fund</td>-->
+<!--            <td><input type="text" name="sinking_fund" th:value="${formData.sinking_fund}" /></td>-->
+<!--            <td>Building Dev Fund</td>-->
+<!--            <td><input type="text" name="building_dev_fund" th:value="${formData.building_dev_fund}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--            <td>Other</td>-->
+<!--            <td><input type="text" name="other" th:value="${formData.other}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--            <td>Reserve Mhada Service Charge</td>-->
+<!--            <td><input type="text" name="reserve_mhada_service_charge" th:value="${formData.reserve_mhada_service_charge}" /></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td>Current Month Total</td>-->
+<!--            <td>Rs</td>-->
+<!--            <td><input type="text" name="current_month_total" th:value="${formData.current_month_total}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td>Arrears</td>-->
+<!--            <td>Rs.</td>-->
+<!--            <td><input type="text" name="arrears" th:value="${formData.arrears}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td>Amount Due</td>-->
+<!--            <td>Rs.</td>-->
+<!--            <td><input type="text" name="amount_due" th:value="${formData.amount_due}" /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td>Amount Due</td>-->
+<!--            <td>Rs.</td>-->
+<!--            <td><input type="text" name="amount_due" th:value="${formData.amount_due}" /></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+<!--    <input type="submit" value="Submit" style="display: block; margin: 20px auto; padding: 10px 20px; background-color:blue; color: white; font-size: 16px; border: none; border-radius: 5px;">-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Society Bill</title>
+    <style>
+        /* Hide the up and down arrows in number input */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .bill-container {
+            width: 700px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .bill-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .bill-header h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .bill-header p {
+            margin: 5px 0;
+        }
+        .bill-details, .bill-footer {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .bill-details th, .bill-details td, .bill-footer th, .bill-footer td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        .bill-footer th, .bill-footer td {
+            text-align: right;
+        }
+        .bill-summary {
+            margin-top: 20px;
+        }
+        .bill-summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bill-summary th, .bill-summary td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: right;
+        }
+        .bill-summary .amount {
+            text-align: left;
+        }
+        .footer-section {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .footer-section th, .footer-section td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/api/form/submit}" method="post">
+    <div class="bill-container">
+        <div class="bill-header">
+            <h1 th:text="${formData['society_name']}>"></h1>
+            <p th:text="${formData['line1']}>"></p>
+            <p th:text="${formData['line2']}>"></p>
+            <p th:text="${formData['line3']}>"></p>
+        </div>
+<!--        <table class="bill-details">-->
+<!--            <tr>-->
+<!--                <td>NAME:</td>-->
+<!--                <td th:text="${formData['name']}"></td>-->
+<!--                <td>ROOM NO:</td>-->
+<!--                <td th:text="${formData['room_no']}"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>BILL NO:</td>-->
+<!--                <td th:text="${formData['bill_no']}"></td>-->
+<!--                <td>BILL DATE:</td>-->
+<!--                <td th:text="${formData['bill_date']}"></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+        <table class="bill-details" style="margin-top: 20px;">
+            <tr>
+                <th>SR NO</th>
+                <th>DETAILS</th>
+                <th>AMOUNT</th>
+                <th>SR NO</th>
+                <th>DETAILS</th>
+                <th>AMOUNT</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Maintenance Contribution</td>
+                <td><input type="number" name="maintenance_contribution" th:value="${formData.maintenance_contribution}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+                <td>5</td>
+                <td>Sub Charge</td>
+                <td><input type="number" name="sub_charge" th:value="${formData.sub_charge}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Housing Board Contribution</td>
+                <td><input type="number" name="housing_board_contribution" th:value="${formData.housing_board_contribution}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+                <td>6</td>
+                <td>Fine</td>
+                <td><input type="number" name="fine" th:value="${formData.fine}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Property Tax Contribution</td>
+                <td><input type="number" name="property_tax_contribution" th:value="${formData.property_tax_contribution}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+                <td>7</td>
+                <td>Building Dev Fund</td>
+                <td><input type="number" name="building_dev_fund" th:value="${formData.building_dev_fund}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Sinking Fund</td>
+                <td><input type="number" name="sinking_fund" th:value="${formData.sinking_fund}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+                <td>8</td>
+                <td>Other</td>
+                <td><input type="number" name="other" th:value="${formData.other}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td>9</td>
+                <td>Reserve Mhada Service Charge</td>
+                <td><input type="number" name="reserve_mhada_service_charge" th:value="${formData.reserve_mhada_service_charge}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+        </table>
+        <table class="footer-section">
+            <tr>
+                <td>Bill For:</td>
+                <td><input type="date" name="bill_for" th:value="${formData.bill_for}"></td>
+                <td>Current Month Total</td>
+                <td>Rs.</td>
+                <td><input type="number" name="current_month_total" th:value="${formData.current_month_total}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td>Rupees(In words):</td>
+                <td><input type="text" name="amount_due_in_words" th:value="${formData.amount_due_in_words}"/></td>
+                <td>Arrears</td>
+                <td>Rs.</td>
+                <td><input type="number" name="arrears" th:value="${formData.arrears}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td>Bldg. Fund <br> Dues:</td>
+                <td><input type="text" name="bldg_fund_due" th:value="${formData.bldg_fund_due}"/></td>
+<!--                <td>-->
+<!--                    From: <input type="month" name="bill_date_from" th:value="${formData.bill_date_from}"/>-->
+<!--                    To: <input type="month" name="bill_date_to" th:value="${formData.bill_date_to}"/>-->
+<!--                </td>-->
+                <td>Amount Due:</td>
+                <td>Rs.</td>
+                <td><input type="number" name="amount_due" th:value="${formData.amount_due}" pattern="^[0-9]*[.]?[0-9]+$" min="0" step="any" title="Please enter a positive number"/></td>
+            </tr>
+            <tr>
+                <td>Credit Bill:</td>
+                <td colspan="4"></td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: center;">For Shuklendu Co-Op Hsg Soc Ltd</td>
+            </tr>
+        </table>
+    </div>
+    <input type="submit" value="Submit" style="display: block; margin: 20px auto; padding: 10px 20px; background-color:blue; color: white; font-size: 16px; border: none; border-radius: 5px;">
+</form>
+</body>
+</html>

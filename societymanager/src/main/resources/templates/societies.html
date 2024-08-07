@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Societies</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="societies-container">
+        <h2>Societies</h2>
+        <form id="societyForm">
+            <label for="buildings">Buildings:</label>
+            <select id="buildings" name="buildings">
+                <option value="Sagar Kutir">Sagar Kutir</option>
+                <option value="Ganga Vihar">Ganga Vihar</option>
+                <option value="Neelkanth Garden">Neelkanth Garden</option>
+                <option value="Ashiana Apartments">Ashiana Apartments</option>
+                <option value="Sanjeevani Towers">Sanjeevani Towers</option>
+                <option value="Anand Bhavan">Anand Bhavan</option>
+                <option value="Shiv Sadan">Shiv Sadan</option>
+                <option value="Prithvi Vihar">Prithvi Vihar</option>
+                <option value="Vishnu Palace">Vishnu Palace</option>
+                <option value="Radhika Residency">Radhika Residency</option>
+            </select>
+            <button type="button" onclick="generateBill()">Generate a Bill</button>
+        </form>
+    </div>
+
+    <script>
+        function generateBill() {
+            const selectedBuilding = document.getElementById('buildings').value;
+            if (selectedBuilding) {
+                window.location.href = 'bill.html?building=' + encodeURIComponent(selectedBuilding);
+            } else {
+                alert('Please select a building.');
+            }
+        }
+    </script>
+</body>
+</html>

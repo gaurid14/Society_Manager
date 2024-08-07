@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Society Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .bill-container {
+            width: 700px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .bill-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .bill-header h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .bill-header p {
+            margin: 5px 0;
+        }
+        .bill-details, .bill-footer {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .bill-details th, .bill-details td, .bill-footer th, .bill-footer td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        .bill-footer th, .bill-footer td {
+            text-align: right;
+        }
+        .bill-summary {
+            margin-top: 20px;
+        }
+        .bill-summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bill-summary th, .bill-summary td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: right;
+        }
+        .bill-summary .amount {
+            text-align: left;
+        }
+        .footer-section {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .footer-section th, .footer-section td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="bill-container">
+    <div class="bill-header">
+        <h1 th:text="${formData['society_name']}>"></h1>
+        <p th:text="${formData['line1']}>"></p>
+        <p th:text="${formData['line2']}>"></p>
+        <p th:text="${formData['line3']}>"></p>
+    </div>
+    <table class="bill-details">
+        <tr>
+            <td>NAME:</td>
+            <td th:text="${formData['name']}"></td>
+            <td>ROOM NO:</td>
+            <td th:text="${formData['room_no']}"></td>
+        </tr>
+        <tr>
+            <td>BILL NO:</td>
+            <td th:text="${formData['bill_no']}"></td>
+            <td>BILL DATE:</td>
+            <td th:text="${formData['bill_date']}"></td>
+        </tr>
+    </table>
+    <table class="bill-details" style="margin-top: 20px;">
+        <tr>
+            <th>SR NO</th>
+            <th>DETAILS</th>
+            <th>AMOUNT</th>
+            <th>SR NO</th>
+            <th>DETAILS</th>
+            <th>AMOUNT</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Maintenance Contribution</td>
+            <td th:text="${formData['maintenance_contribution']}"></td>
+            <td>5</td>
+            <td>Sub Charge</td>
+            <td th:text="${formData['sub_charge']}"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Housing Board Contribution</td>
+            <td th:text="${formData['housing_board_contribution']}"></td>
+            <td>6</td>
+            <td>Fine</td>
+            <td th:text="${formData['fine']}"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Property Tax Contribution</td>
+            <td th:text="${formData['property_tax_contribution']}"></td>
+            <td>7</td>
+            <td>Building Dev Fund</td>
+            <td th:text="${formData['building_dev_fund']}"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sinking Fund</td>
+            <td th:text="${formData['sinking_fund']}"></td>
+            <td>8</td>
+            <td>Other</td>
+            <td th:text="${formData['other']}"></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td>9</td>
+            <td>Reserve Mhada Service Charge</td>
+            <td th:text="${formData['reserve_mhada_service_charge']}"></td>
+        </tr>
+    </table>
+    <table class="footer-section">
+        <tr>
+            <td>Bill For:</td>
+            <td th:text="${formData['bill_for']}"></td>
+            <td>Current Month Total</td>
+            <td>Rs.</td>
+            <td th:text="${formData['current_month_total']}"></td>
+        </tr>
+        <tr>
+            <td>Rupees:</td>
+            <td th:text="${formData['amount_due_in_words']}"></td>
+            <td>Arrears</td>
+            <td>Rs.</td>
+            <td th:text="${formData['arrears']}"></td>
+        </tr>
+        <tr>
+            <td>Bldg. Fund <br> Dues:</td>
+            <td th:text="${formData['bldg_fund_due']}">></td>
+            <td>Amount Due:</td>
+            <td>Rs.</td>
+            <td th:text="${formData['amount_due']}"></td>
+        </tr>
+        <tr>
+            <td>Credit Bill:</td>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="text-align: center;">For <td th:text="${formData['society_name']}>"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
